@@ -1,0 +1,481 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#1D292E">
+<title>10/4 KL 服事 App</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;900&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --yellow:#FFCC32;--deep:#1D292E;--midnight:#3C5464;--sand:#C8956A;--cream:#EDE0D4;--cream-light:#F6F0EA;--black:#0D1618;
+  --fg:#1D292E;--fg2:#3C5464;--fg3:rgba(29,41,46,.62);
+  --zh:'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif;--en:'Montserrat','Noto Sans TC',sans-serif;
+  --ease:cubic-bezier(.16,1,.3,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--cream-light);color:var(--fg);font-family:var(--zh);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.ic{width:20px;height:20px;flex:none}
+.wrap{max-width:560px;margin:0 auto;padding:0 16px}
+[hidden]{display:none!important}
+
+/* 首頁 hero */
+.hero{background:var(--deep);color:#fff;padding:40px 0 32px}
+.hero .wrap{display:flex;flex-direction:column;gap:8px}
+.brand{font-family:var(--en);font-weight:900;font-size:clamp(34px,10vw,48px);line-height:1.05;letter-spacing:-.02em;color:var(--yellow)}
+.hero h1{font-weight:900;font-size:22px;line-height:1.3;letter-spacing:.02em}
+.place{display:flex;align-items:flex-start;gap:8px;color:var(--cream);font-size:14px;margin-top:8px}
+.place .ic{width:18px;height:18px;margin-top:3px}
+
+section.home{padding:32px 0}
+section.home + section.home{padding-top:8px}
+section.engage{padding:32px 0!important;margin-top:24px}
+.sec-title{font-weight:900;font-size:22px;line-height:1.3;margin-bottom:4px}
+.sec-sub{color:var(--fg3);font-size:14px;margin-bottom:16px}
+
+/* 團隊選單 */
+.team-grid{display:grid;grid-template-columns:1fr;gap:8px}
+.team-card{display:flex;align-items:center;gap:12px;background:#fff;border-radius:12px;padding:14px 16px;text-decoration:none;box-shadow:0 2px 8px rgba(29,41,46,.08);transition:transform 150ms var(--ease),box-shadow 150ms var(--ease)}
+.team-card:active{transform:scale(.98)}
+.tc-main{flex:1;min-width:0;display:flex;flex-direction:column}
+.tc-main b{font-size:17px;font-weight:700;line-height:1.35}
+.tc-main small{font-family:var(--en);font-size:12px;font-weight:600;color:var(--fg3);letter-spacing:.02em}
+.tc-lead{font-size:14px;color:var(--fg2)}
+.tc-arrow{color:var(--deep)}
+.tc-soon{font-size:12px;color:var(--fg3);border:1px solid rgba(29,41,46,.18);border-radius:999px;padding:2px 10px}
+.team-card.is-soon{opacity:.55;box-shadow:none}
+@media (hover:hover){.team-card:not(.is-soon):hover{box-shadow:0 8px 24px rgba(29,41,46,.16);transform:translateY(-1px)}}
+
+/* 時間 */
+.times{list-style:none;display:flex;flex-direction:column}
+.times li{display:flex;gap:16px;padding:10px 0;border-bottom:1px solid rgba(29,41,46,.1)}
+.times li:last-child{border-bottom:0}
+.times time{font-family:var(--en);font-weight:700;font-size:15px;min-width:76px;color:var(--deep)}
+.flex-note{display:flex;gap:8px;align-items:flex-start;margin-top:12px;font-size:14px;color:var(--fg2);background:var(--cream);border-radius:8px;padding:10px 12px}
+.flex-note .ic{width:18px;height:18px;margin-top:2px}
+
+/* Engage */
+.engage{background:var(--cream)}
+.engage .card{background:#fff;border-radius:12px;padding:20px 16px;margin-bottom:12px}
+.engage h3{font-size:18px;font-weight:700;margin-bottom:8px}
+.say{font-size:17px;font-weight:500;line-height:1.6;padding:4px 0 8px}
+.say::before{content:"「"}.say::after{content:"」"}
+.dots{list-style:none;display:flex;flex-direction:column;gap:6px;margin-top:8px}
+.dots li{position:relative;padding-left:18px}
+.dots li::before{content:"";position:absolute;left:2px;top:.72em;width:6px;height:6px;border-radius:50%;background:var(--sand)}
+.steps{list-style:none;display:flex;flex-direction:column}
+.steps li{padding:12px 0;border-bottom:1px solid rgba(29,41,46,.1)}
+.steps li:last-child{border-bottom:0}
+.steps .who{font-size:14px;color:var(--fg3);display:block}
+.steps b{font-weight:700}
+.rule{font-size:15px;color:var(--fg2);margin-top:12px}
+
+/* QR */
+.qr-list{display:grid;grid-template-columns:1fr;gap:8px}
+.qr-btn{display:flex;align-items:center;gap:12px;width:100%;text-align:left;background:#fff;border:1.5px solid rgba(29,41,46,.14);border-radius:12px;padding:12px 14px;font:inherit;color:inherit;cursor:pointer;transition:transform 150ms var(--ease)}
+.qr-btn:active{transform:scale(.98)}
+.qr-ic{width:32px;height:32px;padding:6px;border-radius:8px;background:var(--deep);color:var(--yellow)}
+.qr-txt{display:flex;flex-direction:column;min-width:0}
+.qr-txt b{font-weight:700;font-size:16px;line-height:1.4}
+.qr-txt small{font-size:13px;color:var(--fg3);line-height:1.45}
+
+.help p{font-size:15px}
+
+/* 團隊頁 */
+.team-hero{background:var(--deep);color:#fff;padding:16px 16px 28px}
+.team-hero > *{max-width:528px;margin-left:auto;margin-right:auto}
+.back{display:flex;align-items:center;gap:4px;color:var(--cream);text-decoration:none;font-size:14px;padding:8px 0;margin-bottom:12px}
+.back .ic{width:18px;height:18px}
+.team-group{font-family:var(--en);font-size:13px;font-weight:600;color:var(--yellow);letter-spacing:.04em}
+.team-hero h2{font-weight:900;font-size:clamp(28px,8vw,36px);line-height:1.2;letter-spacing:.02em;margin:4px 0 16px}
+.mind{font-size:16px;line-height:1.75;color:var(--cream)}
+.block{padding:24px 0;border-bottom:1px solid rgba(29,41,46,.1)}
+.block:last-of-type{border-bottom:0}
+.block h3{display:flex;align-items:center;gap:8px;font-size:18px;font-weight:700;margin-bottom:12px}
+.block h3 .ic{color:var(--sand)}
+.task-group + .task-group{margin-top:16px}
+.task-group h4{font-size:14px;font-weight:700;color:var(--fg2);letter-spacing:.06em;margin-bottom:6px;display:flex;gap:8px;align-items:baseline}
+.task-group h4 small{font-weight:500;letter-spacing:0;color:var(--fg3)}
+.tasks{list-style:none;counter-reset:t;display:flex;flex-direction:column;gap:8px}
+.tasks li{counter-increment:t;position:relative;background:#fff;border-radius:10px;padding:12px 14px 12px 44px;line-height:1.6}
+.tasks li::before{content:counter(t);position:absolute;left:12px;top:13px;width:22px;height:22px;border-radius:50%;background:var(--yellow);color:var(--deep);font-family:var(--en);font-weight:700;font-size:12px;display:flex;align-items:center;justify-content:center;line-height:1}
+.chips{list-style:none;display:flex;flex-wrap:wrap;gap:8px}
+.chip{background:#fff;border-radius:999px;padding:6px 14px;font-size:15px;display:flex;align-items:baseline;gap:6px}
+.chip-lead{background:var(--deep);color:#fff}
+.chip-lead small{font-size:12px;color:var(--yellow)}
+.muted{color:var(--fg3);font-size:14px;margin-top:8px}
+.block > .muted:first-of-type{margin:-4px 0 12px}
+.actions{display:flex;flex-direction:column;gap:12px;padding:8px 0 40px}
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;min-height:48px;border-radius:8px;font-weight:700;font-size:15px;text-decoration:none;padding:12px 20px;transition:opacity 150ms,transform 150ms var(--ease)}
+.btn:active{transform:scale(.98)}
+.btn .ic{width:18px;height:18px}
+.btn-primary{background:var(--yellow);color:var(--deep)}
+.btn-outline{border:2px solid var(--deep);color:var(--deep)}
+
+footer{background:var(--deep);color:var(--cream);padding:32px 16px 40px;text-align:center}
+footer b{display:block;font-family:var(--en);font-weight:900;font-size:20px;letter-spacing:.04em;color:var(--yellow)}
+footer small{font-size:13px;opacity:.75}
+
+/* QR 放大 */
+.qr-modal{position:fixed;inset:0;z-index:20;background:rgba(13,22,24,.6);display:flex;align-items:flex-end;justify-content:center;opacity:0;pointer-events:none;transition:opacity 200ms var(--ease)}
+.qr-modal.open{opacity:1;pointer-events:auto}
+.qr-sheet{background:#fff;width:100%;max-width:560px;border-radius:24px 24px 0 0;padding:16px 20px calc(24px + env(safe-area-inset-bottom));transform:translateY(24px);transition:transform 250ms var(--ease);text-align:center}
+.qr-modal.open .qr-sheet{transform:none}
+.qr-close{display:flex;margin-left:auto;background:none;border:0;padding:8px;color:var(--fg);cursor:pointer}
+.qr-sheet h3{font-weight:900;font-size:22px;margin-top:-8px}
+.qr-sheet p{color:var(--fg3);font-size:14px;margin:4px 0 12px}
+.qr-img{width:min(78vw,340px);margin:0 auto}
+.qr-img svg{width:100%;height:auto;display:block}
+.qr-url{font-family:var(--en);font-size:13px;color:var(--fg2);word-break:break-all;margin:8px 0 16px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+@media (min-width:600px){.team-grid{grid-template-columns:1fr 1fr}.hero{padding:56px 0 40px}}
+</style>
+</head>
+<body>
+<main>
+  <div class="page" id="page-home">
+    <header class="hero">
+      <div class="wrap">
+        <p class="brand">TOGETHER<br>WE GO</p>
+        <h1>10/4 KL Watch Party 服事 App</h1>
+        <p class="place"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
+  <circle cx="12" cy="10" r="3" /></svg><span>Menara KL 33 Tower 11F Auditorium</span></p>
+      </div>
+    </header>
+
+    <section class="home"><div class="wrap">
+      <h2 class="sec-title">選你的團隊</h2>
+      <p class="sec-sub">點進去看你的心意、任務、隊員和要用的 QR。</p>
+      <div class="team-grid"><div class="team-card is-soon" aria-disabled="true">
+        <span class="tc-main"><b>PM</b></span>
+        <span class="tc-lead">Alicia</span>
+        <span class="tc-soon">下一版</span></div><div class="team-card is-soon" aria-disabled="true">
+        <span class="tc-main"><b>Production 影音控</b></span>
+        <span class="tc-lead">Ryan</span>
+        <span class="tc-soon">下一版</span></div><a class="team-card" href="#greeters">
+        <span class="tc-main"><b>Greeters 歡迎團隊</b><small>Home Team</small></span>
+        <span class="tc-lead">Benji</span>
+        <svg class="ic tc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6" /></svg></a><div class="team-card is-soon" aria-disabled="true">
+        <span class="tc-main"><b>Usher 招待團隊</b><small>Home Team</small></span>
+        <span class="tc-lead">Benji</span>
+        <span class="tc-soon">下一版</span></div><div class="team-card is-soon" aria-disabled="true">
+        <span class="tc-main"><b>Venue 場地維護團隊</b></span>
+        <span class="tc-lead">Jennifer</span>
+        <span class="tc-soon">下一版</span></div><div class="team-card is-soon" aria-disabled="true">
+        <span class="tc-main"><b>平面攝影 Photo</b></span>
+        <span class="tc-lead">Cecilia</span>
+        <span class="tc-soon">下一版</span></div><div class="team-card is-soon" aria-disabled="true">
+        <span class="tc-main"><b>動態攝影 Video</b></span>
+        <span class="tc-lead">Kalon</span>
+        <span class="tc-soon">下一版</span></div><div class="team-card is-soon" aria-disabled="true">
+        <span class="tc-main"><b>Front Row Support ＆ 禱告</b></span>
+        <span class="tc-lead">Tyson</span>
+        <span class="tc-soon">下一版</span></div><div class="team-card is-soon" aria-disabled="true">
+        <span class="tc-main"><b>Next Step Team</b></span>
+        <span class="tc-lead">Lily</span>
+        <span class="tc-soon">下一版</span></div><div class="team-card is-soon" aria-disabled="true">
+        <span class="tc-main"><b>受洗團隊</b><small>Baptism</small></span>
+        <span class="tc-lead">許詮</span>
+        <span class="tc-soon">下一版</span></div></div>
+    </div></section>
+
+    <section class="home"><div class="wrap">
+      <h2 class="sec-title">重要時間</h2>
+      <ol class="times"><li><time>10/3（六）</time><span>2-4PM 彩排，KL33</span></li><li><time>7:30</time><span>服事夥伴集合、Rally 禱告、早餐</span></li><li><time>9:00</time><span>開門</span></li><li><time>9:30</time><span>台北主日開始</span></li><li><time>10:57</time><span>One More 圍圈禱告</span></li><li><time>11:49</time><span>受洗，接著全場一起領聖餐</span></li><li><time>12:00</time><span>聚會結束</span></li><li><time>12:30</time><span>Mingle 到此</span></li><li><time>13:00</time><span>收拾完、交還場地</span></li></ol>
+      <p class="flex-note"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" />
+  <path d="M12 16v-4" />
+  <path d="M12 8h.01" /></svg>主日的時間與流程會依現場進行彈性調整，以台上與 PM 的提醒為準。</p>
+    </div></section>
+
+    <section class="home engage" id="engage"><div class="wrap">
+      <h2 class="sec-title">每個人都要會：Engage 與下一步</h2>
+      <p class="sec-sub">不管你在哪一隊，遇到人都可以這樣做。</p>
+
+      <div class="card">
+        <h3>1. 主動開口</h3>
+        <p class="say">嘿，你好！我是 ○○，怎麼稱呼你？很開心你今天來！</p>
+        <p class="muted">挑一兩題聊就好，不是面試：</p>
+        <ul class="dots">
+          <li>今天是從哪裡過來參加？</li>
+          <li>什麼原因讓你決定來今天這場聚會？</li>
+          <li>這是第一次參加 The Hope 的實體聚會嗎？還是平常就在小組或服事團隊裡？</li>
+        </ul>
+        <ul class="dots" style="margin-top:12px">
+          <li>看著對方眼睛、說話放慢，讓他感覺溫暖，不是被推銷</li>
+          <li>記住名字，散場再遇到時直接叫他</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>2. 給一個下一步</h3>
+        <ol class="steps">
+          <li><span class="who">還在觀望、沒準備好談信仰（最安全的預設）</span><b>下個月的 Watch Party</b>：11/1 檳城、11/8 KL，掃「現場登記」報名</li>
+          <li><span class="who">想認識更多人、問有沒有小組</span><b>10/18 ONLINE BELONG</b>：連結到同地區的家人</li>
+          <li><span class="who">今天沒有事先報名</span><b>現場登記</b>：補留資料，教會會再跟他聯繫</li>
+          <li><span class="who">新朋友</span><b>VIP 卡</b>：掃卡上 QR 加 LINE@ 填新朋友表單；沒有 LINE 就給「新朋友卡」</li>
+          <li><span class="who">想受洗</span><b>受洗現場報名</b>，並帶他找受洗團隊</li>
+        </ol>
+        <p class="rule"><b>一次只給一個</b>，講出具體名稱、時間和方式。不知道怎麼回答，就帶他到 Next Step 桌。</p>
+      </div>
+    </div></section>
+
+    <section class="home"><div class="wrap">
+      <h2 class="sec-title">常用 QR</h2>
+      <p class="sec-sub">點一下放大，直接拿手機給對方掃。</p>
+      <div class="qr-list">
+      <button class="qr-btn" type="button" data-qr="onsite">
+        <svg class="ic qr-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="5" height="5" x="3" y="3" rx="1" />
+  <rect width="5" height="5" x="16" y="3" rx="1" />
+  <rect width="5" height="5" x="3" y="16" rx="1" />
+  <path d="M21 16h-3a2 2 0 0 0-2 2v3" />
+  <path d="M21 21v.01" />
+  <path d="M12 7v3a2 2 0 0 1-2 2H7" />
+  <path d="M3 12h.01" />
+  <path d="M12 3h.01" />
+  <path d="M12 16v.01" />
+  <path d="M16 12h1" />
+  <path d="M21 12v.01" />
+  <path d="M12 21v-1" /></svg>
+        <span class="qr-txt"><b>現場登記</b><small>沒事先報名的人補留資料；也用來報名下個月的 Watch Party</small></span>
+      </button>
+      <button class="qr-btn" type="button" data-qr="baptism">
+        <svg class="ic qr-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="5" height="5" x="3" y="3" rx="1" />
+  <rect width="5" height="5" x="16" y="3" rx="1" />
+  <rect width="5" height="5" x="3" y="16" rx="1" />
+  <path d="M21 16h-3a2 2 0 0 0-2 2v3" />
+  <path d="M21 21v.01" />
+  <path d="M12 7v3a2 2 0 0 1-2 2H7" />
+  <path d="M3 12h.01" />
+  <path d="M12 3h.01" />
+  <path d="M12 16v.01" />
+  <path d="M16 12h1" />
+  <path d="M21 12v.01" />
+  <path d="M12 21v-1" /></svg>
+        <span class="qr-txt"><b>受洗現場報名</b><small>今天想受洗的人填這份</small></span>
+      </button>
+      <button class="qr-btn" type="button" data-qr="vip">
+        <svg class="ic qr-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="5" height="5" x="3" y="3" rx="1" />
+  <rect width="5" height="5" x="16" y="3" rx="1" />
+  <rect width="5" height="5" x="3" y="16" rx="1" />
+  <path d="M21 16h-3a2 2 0 0 0-2 2v3" />
+  <path d="M21 21v.01" />
+  <path d="M12 7v3a2 2 0 0 1-2 2H7" />
+  <path d="M3 12h.01" />
+  <path d="M12 3h.01" />
+  <path d="M12 16v.01" />
+  <path d="M16 12h1" />
+  <path d="M21 12v.01" />
+  <path d="M12 21v-1" /></svg>
+        <span class="qr-txt"><b>新朋友卡</b><small>沒有在用 LINE 的新朋友，掃這個留資料</small></span>
+      </button>
+      <button class="qr-btn" type="button" data-qr="line">
+        <svg class="ic qr-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="5" height="5" x="3" y="3" rx="1" />
+  <rect width="5" height="5" x="16" y="3" rx="1" />
+  <rect width="5" height="5" x="3" y="16" rx="1" />
+  <path d="M21 16h-3a2 2 0 0 0-2 2v3" />
+  <path d="M21 21v.01" />
+  <path d="M12 7v3a2 2 0 0 1-2 2H7" />
+  <path d="M3 12h.01" />
+  <path d="M12 3h.01" />
+  <path d="M12 16v.01" />
+  <path d="M16 12h1" />
+  <path d="M21 12v.01" />
+  <path d="M12 21v-1" /></svg>
+        <span class="qr-txt"><b>線上分部 LINE@</b><small>加入後裡面有新朋友小表單（ID：@thehopeonline）</small></span>
+      </button>
+      <button class="qr-btn" type="button" data-qr="belong">
+        <svg class="ic qr-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="5" height="5" x="3" y="3" rx="1" />
+  <rect width="5" height="5" x="16" y="3" rx="1" />
+  <rect width="5" height="5" x="3" y="16" rx="1" />
+  <path d="M21 16h-3a2 2 0 0 0-2 2v3" />
+  <path d="M21 21v.01" />
+  <path d="M12 7v3a2 2 0 0 1-2 2H7" />
+  <path d="M3 12h.01" />
+  <path d="M12 3h.01" />
+  <path d="M12 16v.01" />
+  <path d="M16 12h1" />
+  <path d="M21 12v.01" />
+  <path d="M12 21v-1" /></svg>
+        <span class="qr-txt"><b>10/18 ONLINE BELONG</b><small>想找小組、認識同地區家人的人</small></span>
+      </button>
+      <button class="qr-btn" type="button" data-qr="prayer">
+        <svg class="ic qr-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="5" height="5" x="3" y="3" rx="1" />
+  <rect width="5" height="5" x="16" y="3" rx="1" />
+  <rect width="5" height="5" x="3" y="16" rx="1" />
+  <path d="M21 16h-3a2 2 0 0 0-2 2v3" />
+  <path d="M21 21v.01" />
+  <path d="M12 7v3a2 2 0 0 1-2 2H7" />
+  <path d="M3 12h.01" />
+  <path d="M12 3h.01" />
+  <path d="M12 16v.01" />
+  <path d="M16 12h1" />
+  <path d="M21 12v.01" />
+  <path d="M12 21v-1" /></svg>
+        <span class="qr-txt"><b>禱告地圖</b><small>把為 One More 的禱告寫上去</small></span>
+      </button></div>
+    </div></section>
+
+    <section class="home help"><div class="wrap">
+      <h2 class="sec-title">遇到狀況找誰</h2>
+      <p>先找你的隊長，再找 PM <b>Alicia</b>。場地問題找 <b>Jennifer</b>。</p>
+    </div></section>
+  </div>
+  
+  <article class="page" id="page-greeters" hidden>
+    <header class="team-hero">
+      <a class="back" href="#"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6" /></svg>所有團隊</a>
+      <p class="team-group">Home Team</p>
+      <h2>Greeters 歡迎團隊</h2>
+      <p class="mind">一個人走進門的前 30 秒，會決定他覺不覺得自己屬於這裡。你是他在這裡遇見的第一張笑臉，讓 YOU BELONG HERE 在他身上成真。</p>
+    </header>
+    <div class="wrap">
+      <section class="block"><h3><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" />
+  <path d="M12 6v6l4 2" /></svg>你的時間</h3><ol class="times"><li><time>7:30</time><span>集合、Rally 禱告、早餐</span></li><li><time>9:00</time><span>場內外就位迎接，站到 9:40。1F 電梯要 2 位支援刷卡</span></li><li><time>9:40</time><span>站崗結束，回到現場參加主日；聚會中機動補水、補面紙</span></li><li><time>12:00</time><span>散場：出口道別，門口回收聖餐杯與垃圾</span></li></ol><p class="flex-note"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" />
+  <path d="M12 16v-4" />
+  <path d="M12 8h.01" /></svg>實際時間依現場進行彈性調整，以台上與 PM 的提醒為準。</p></section>
+      <section class="block"><h3><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 16v-2.38C4 11.5 2.97 10.5 3 8c.03-2.72 1.49-6 4.5-6C9.37 2 10 3.8 10 5.5c0 3.11-2 5.66-2 8.68V16a2 2 0 1 1-4 0Z" />
+  <path d="M20 20v-2.38c0-2.12 1.03-3.12 1-5.62-.03-2.72-1.49-6-4.5-6C14.63 6 14 7.8 14 9.5c0 3.11 2 5.66 2 8.68V20a2 2 0 1 0 4 0Z" />
+  <path d="M16 17h4" />
+  <path d="M4 13h4" /></svg>你的任務</h3>
+        <div class="task-group">
+          <h4>預備</h4>
+          <ol class="tasks"><li>認識自己的站位（大樓門口／電梯口）和動線，知道洗手間、會場入口在哪</li></ol>
+        </div>
+        <div class="task-group">
+          <h4>當天</h4>
+          <ol class="tasks"><li>主動迎接每一個人，看著眼睛打招呼，不只是站著指路</li><li>大樓門口與電梯口：分批帶人上樓，不讓人在電梯前擠著或迷路</li><li>報到桌：不設（人力不夠）。遇到沒報名的人，請他掃 QR code 用表單補留資料</li><li>VIP 卡：迎接時發給所有不在現有小組、也不在服事團隊裡的人</li><li>聚會中機動：補水、補面紙，處理地上的水和垃圾</li><li>散場時在出口道別，記得的名字再叫一次；同時在門口回收聖餐杯與垃圾，袋子綁好，跟場地負責人一起拿到 basement</li></ol>
+        </div></section>
+      <section class="block"><h3><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="5" height="5" x="3" y="3" rx="1" />
+  <rect width="5" height="5" x="16" y="3" rx="1" />
+  <rect width="5" height="5" x="3" y="16" rx="1" />
+  <path d="M21 16h-3a2 2 0 0 0-2 2v3" />
+  <path d="M21 21v.01" />
+  <path d="M12 7v3a2 2 0 0 1-2 2H7" />
+  <path d="M3 12h.01" />
+  <path d="M12 3h.01" />
+  <path d="M12 16v.01" />
+  <path d="M16 12h1" />
+  <path d="M21 12v.01" />
+  <path d="M12 21v-1" /></svg>你會用到的 QR</h3><p class="muted">點一下放大，直接拿手機給對方掃。</p><div class="qr-list">
+      <button class="qr-btn" type="button" data-qr="onsite">
+        <svg class="ic qr-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="5" height="5" x="3" y="3" rx="1" />
+  <rect width="5" height="5" x="16" y="3" rx="1" />
+  <rect width="5" height="5" x="3" y="16" rx="1" />
+  <path d="M21 16h-3a2 2 0 0 0-2 2v3" />
+  <path d="M21 21v.01" />
+  <path d="M12 7v3a2 2 0 0 1-2 2H7" />
+  <path d="M3 12h.01" />
+  <path d="M12 3h.01" />
+  <path d="M12 16v.01" />
+  <path d="M16 12h1" />
+  <path d="M21 12v.01" />
+  <path d="M12 21v-1" /></svg>
+        <span class="qr-txt"><b>現場登記</b><small>沒事先報名的人補留資料；也用來報名下個月的 Watch Party</small></span>
+      </button>
+      <button class="qr-btn" type="button" data-qr="vip">
+        <svg class="ic qr-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="5" height="5" x="3" y="3" rx="1" />
+  <rect width="5" height="5" x="16" y="3" rx="1" />
+  <rect width="5" height="5" x="3" y="16" rx="1" />
+  <path d="M21 16h-3a2 2 0 0 0-2 2v3" />
+  <path d="M21 21v.01" />
+  <path d="M12 7v3a2 2 0 0 1-2 2H7" />
+  <path d="M3 12h.01" />
+  <path d="M12 3h.01" />
+  <path d="M12 16v.01" />
+  <path d="M16 12h1" />
+  <path d="M21 12v.01" />
+  <path d="M12 21v-1" /></svg>
+        <span class="qr-txt"><b>新朋友卡</b><small>沒有在用 LINE 的新朋友，掃這個留資料</small></span>
+      </button></div></section>
+      <section class="block"><h3><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+  <path d="M16 3.128a4 4 0 0 1 0 7.744" />
+  <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+  <circle cx="9" cy="7" r="4" /></svg>你的團隊</h3><ul class="chips"><li class="chip chip-lead">Benji<small>隊長</small></li><li class="chip">嘉恩</li><li class="chip">Jacqueline</li><li class="chip">阿傑</li><li class="chip">Chloe</li><li class="chip">Joshua</li><li class="chip">佩盈</li><li class="chip">寶儀</li><li class="chip">Lily</li><li class="chip">Andy</li></ul></section>
+      <section class="block"><h3><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 14h2a2 2 0 0 0 0-4h-3c-.6 0-1.1.2-1.4.6L3 16" />
+  <path d="m14.45 13.39 5.05-4.694C20.196 8 21 6.85 21 5.75a2.75 2.75 0 0 0-4.797-1.837.276.276 0 0 1-.406 0A2.75 2.75 0 0 0 11 5.75c0 1.2.802 2.248 1.5 2.946L16 11.95" />
+  <path d="m2 15 6 6" />
+  <path d="m7 20 1.6-1.4c.3-.4.8-.6 1.4-.6h4c1.1 0 2.1-.4 2.8-1.2l4.6-4.4a1 1 0 0 0-2.75-2.91" /></svg>可以身兼嗎</h3><p>開場前的服事。開場後有空檔，可以轉 Next Step Team、支援受洗團隊，或支援 Front Row 的帶動與禱告。</p></section>
+      <section class="block"><h3><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" />
+  <path d="m4.93 4.93 4.24 4.24" />
+  <path d="m14.83 9.17 4.24-4.24" />
+  <path d="m14.83 14.83 4.24 4.24" />
+  <path d="m9.17 14.83-4.24 4.24" />
+  <circle cx="12" cy="12" r="4" /></svg>遇到狀況找誰</h3><p>先找隊長 <b>Benji</b>，再找 PM <b>Alicia</b>。場地問題找 <b>Jennifer</b>。</p></section>
+      <div class="actions">
+        <a class="btn btn-primary" href="https://docs.google.com/document/d/1cn1ICxwtm4_DtC8Sb_Uqp7Cfj2ZiWv620iBSLK6_uE8/edit" target="_blank" rel="noopener">看完整 playbook <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6" />
+  <path d="M10 14 21 3" />
+  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /></svg></a>
+        <a class="btn btn-outline" href="#engage">每個人都要會：Engage 與下一步</a>
+      </div>
+    </div>
+  </article>
+</main>
+
+<footer><b>YOU BELONG HERE</b><small>The Hope 線上分部｜10/4 KL Watch Party</small></footer>
+
+<div class="qr-modal" id="qr-modal" aria-hidden="true">
+  <div class="qr-sheet" role="dialog" aria-modal="true" aria-labelledby="qr-title">
+    <button class="qr-close" type="button" aria-label="關閉"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18" />
+  <path d="m6 6 12 12" /></svg></button>
+    <h3 id="qr-title"></h3>
+    <p id="qr-note"></p>
+    <div class="qr-img" id="qr-img"></div>
+    <p class="qr-url" id="qr-url"></p>
+    <a class="btn btn-outline" id="qr-open" target="_blank" rel="noopener">開啟連結 <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6" />
+  <path d="M10 14 21 3" />
+  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /></svg></a>
+  </div>
+</div>
+<div id="qr-store" hidden><div data-svg="onsite"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 33 33" shape-rendering="crispEdges"><path fill="#FFFFFF" d="M0 0h33v33H0z"/><path stroke="#0D1618" d="M2 2.5h7m1 0h1m1 0h5m1 0h1m1 0h1m3 0h7M2 3.5h1m5 0h1m3 0h2m1 0h3m1 0h1m1 0h2m1 0h1m5 0h1M2 4.5h1m1 0h3m1 0h1m2 0h3m2 0h1m2 0h1m1 0h1m2 0h1m1 0h3m1 0h1M2 5.5h1m1 0h3m1 0h1m1 0h1m1 0h1m7 0h1m1 0h1m1 0h1m1 0h3m1 0h1M2 6.5h1m1 0h3m1 0h1m1 0h1m2 0h2m4 0h2m3 0h1m1 0h3m1 0h1M2 7.5h1m5 0h1m1 0h1m2 0h2m3 0h2m1 0h1m2 0h1m5 0h1M2 8.5h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7M10 9.5h4m1 0h1m1 0h4m1 0h1M2 10.5h1m3 0h1m1 0h4m1 0h3m3 0h1m1 0h7m2 0h1M2 11.5h3m1 0h2m3 0h2m2 0h2m1 0h1m5 0h7M3 12.5h1m1 0h2m1 0h1m1 0h1m2 0h2m3 0h1m5 0h1m5 0h1M7 13.5h1m2 0h1m1 0h3m1 0h1m2 0h1m3 0h1m1 0h3m1 0h2M5 14.5h1m1 0h3m1 0h3m1 0h5m1 0h1m1 0h1m1 0h1m3 0h1M3 15.5h1m3 0h1m4 0h1m6 0h2m3 0h1m1 0h5M5 16.5h1m2 0h3m2 0h5m1 0h2m1 0h1m2 0h4m1 0h1M2 17.5h2m1 0h3m2 0h2m1 0h1m1 0h1m1 0h4m3 0h1m4 0h2M2 18.5h1m2 0h2m1 0h3m1 0h1m1 0h2m3 0h5m5 0h1M2 19.5h2m1 0h1m1 0h1m4 0h2m1 0h2m1 0h3m3 0h4m1 0h2M4 20.5h2m2 0h1m1 0h2m2 0h1m3 0h1m1 0h1m2 0h1m4 0h1m1 0h1M4 21.5h1m4 0h6m1 0h1m2 0h1m4 0h2m3 0h2M2 22.5h2m2 0h1m1 0h1m2 0h2m1 0h6m1 0h7m2 0h1M10 23.5h1m1 0h1m1 0h1m5 0h1m1 0h1m3 0h1m3 0h1M2 24.5h7m1 0h2m2 0h4m3 0h2m1 0h1m1 0h3m1 0h1M2 25.5h1m5 0h1m2 0h1m1 0h1m1 0h1m1 0h6m3 0h1m3 0h1M2 26.5h1m1 0h3m1 0h1m1 0h3m1 0h2m3 0h1m1 0h7m1 0h2M2 27.5h1m1 0h3m1 0h1m2 0h6m1 0h4m1 0h1m1 0h1m3 0h1M2 28.5h1m1 0h3m1 0h1m2 0h5m2 0h1m1 0h4m1 0h1m1 0h4M2 29.5h1m5 0h1m3 0h3m4 0h2m1 0h2m3 0h1m1 0h2M2 30.5h7m1 0h1m2 0h3m1 0h1m2 0h3m4 0h1m1 0h1"/></svg>
+</div><div data-svg="baptism"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 33 33" shape-rendering="crispEdges"><path fill="#FFFFFF" d="M0 0h33v33H0z"/><path stroke="#0D1618" d="M2 2.5h7m3 0h1m1 0h4m2 0h3m1 0h7M2 3.5h1m5 0h1m2 0h2m1 0h6m4 0h1m5 0h1M2 4.5h1m1 0h3m1 0h1m1 0h3m1 0h2m1 0h1m2 0h2m2 0h1m1 0h3m1 0h1M2 5.5h1m1 0h3m1 0h1m1 0h1m1 0h1m1 0h1m1 0h2m1 0h1m2 0h1m1 0h1m1 0h3m1 0h1M2 6.5h1m1 0h3m1 0h1m1 0h1m1 0h2m3 0h6m1 0h1m1 0h3m1 0h1M2 7.5h1m5 0h1m1 0h2m7 0h1m2 0h1m1 0h1m5 0h1M2 8.5h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7M10 9.5h1m3 0h1m1 0h1m1 0h1m3 0h1M2 10.5h1m1 0h5m4 0h2m3 0h2m4 0h5M2 11.5h3m5 0h1m1 0h6m3 0h6m3 0h1M4 12.5h1m3 0h1m1 0h4m1 0h6m2 0h1m2 0h1M4 13.5h1m1 0h2m1 0h2m1 0h2m1 0h1m1 0h1m2 0h1m4 0h1m1 0h1m1 0h1M2 14.5h1m1 0h5m1 0h2m1 0h1m2 0h2m1 0h1m2 0h2m3 0h2M3 15.5h4m2 0h1m3 0h2m2 0h6m1 0h3m3 0h1M2 16.5h2m1 0h1m1 0h3m1 0h2m1 0h1m7 0h7M2 17.5h2m1 0h3m4 0h1m3 0h1m1 0h1m4 0h1m5 0h1M2 18.5h2m4 0h2m1 0h2m1 0h1m3 0h3m4 0h1m1 0h2M2 19.5h1m1 0h2m1 0h1m2 0h1m1 0h6m1 0h6m1 0h1m1 0h1m1 0h1M2 20.5h1m1 0h2m2 0h1m1 0h2m2 0h6m5 0h2m1 0h1M2 21.5h1m1 0h2m6 0h1m1 0h2m1 0h1m2 0h1m8 0h1M2 22.5h1m1 0h1m1 0h3m1 0h1m1 0h1m3 0h2m1 0h1m2 0h5m1 0h3M10 23.5h1m1 0h2m3 0h2m1 0h3m3 0h5M2 24.5h7m4 0h2m4 0h4m1 0h1m1 0h3M2 25.5h1m5 0h1m1 0h2m2 0h1m1 0h1m1 0h1m2 0h2m3 0h1m2 0h2M2 26.5h1m1 0h3m1 0h1m1 0h2m1 0h2m4 0h1m2 0h5m1 0h1m1 0h1M2 27.5h1m1 0h3m1 0h1m1 0h2m1 0h1m2 0h2m1 0h2m1 0h1m2 0h1m1 0h2M2 28.5h1m1 0h3m1 0h1m1 0h3m1 0h1m1 0h4m1 0h4m1 0h4M2 29.5h1m5 0h1m2 0h1m1 0h1m2 0h1m1 0h1m3 0h3m1 0h2m1 0h1M2 30.5h7m1 0h2m2 0h3m2 0h2m3 0h1m1 0h3"/></svg>
+</div><div data-svg="vip"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 33 33" shape-rendering="crispEdges"><path fill="#FFFFFF" d="M0 0h33v33H0z"/><path stroke="#0D1618" d="M2 2.5h7m5 0h4m1 0h4m1 0h7M2 3.5h1m5 0h1m3 0h2m1 0h4m1 0h1m3 0h1m5 0h1M2 4.5h1m1 0h3m1 0h1m1 0h2m1 0h3m1 0h1m4 0h1m1 0h1m1 0h3m1 0h1M2 5.5h1m1 0h3m1 0h1m1 0h2m4 0h2m1 0h1m1 0h1m2 0h1m1 0h3m1 0h1M2 6.5h1m1 0h3m1 0h1m1 0h1m2 0h2m2 0h6m1 0h1m1 0h3m1 0h1M2 7.5h1m5 0h1m1 0h2m1 0h1m5 0h1m4 0h1m5 0h1M2 8.5h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7M10 9.5h1m5 0h1m1 0h1m1 0h3M2 10.5h1m1 0h5m2 0h4m3 0h2m1 0h1m2 0h5M3 11.5h1m1 0h1m4 0h1m1 0h1m2 0h3m2 0h7m3 0h1M2 12.5h1m2 0h6m2 0h1m1 0h4m3 0h1m1 0h1m1 0h1M2 13.5h5m2 0h4m1 0h2m1 0h1m3 0h2m1 0h1m2 0h1m1 0h1M8 14.5h2m6 0h2m1 0h1m1 0h1m5 0h2M2 15.5h1m1 0h3m3 0h3m4 0h2m2 0h2m1 0h3m3 0h1M3 16.5h1m1 0h2m1 0h1m1 0h1m3 0h1m4 0h1m2 0h2m1 0h4M9 17.5h2m5 0h1m1 0h1m1 0h4m1 0h2m2 0h1M2 18.5h3m1 0h1m1 0h2m8 0h2m1 0h1m5 0h2M2 19.5h1m2 0h3m4 0h6m1 0h3m1 0h4m1 0h1m1 0h1M2 20.5h1m1 0h1m3 0h4m3 0h4m1 0h1m1 0h1m3 0h1m1 0h1M2 21.5h1m1 0h3m4 0h1m1 0h1m1 0h1m1 0h1m3 0h2m6 0h1M2 22.5h1m2 0h5m2 0h3m1 0h2m1 0h1m1 0h6m1 0h3M10 23.5h1m2 0h1m3 0h2m3 0h1m3 0h5M2 24.5h7m2 0h2m1 0h1m5 0h3m1 0h1m1 0h3M2 25.5h1m5 0h1m1 0h2m4 0h1m1 0h1m1 0h3m3 0h1m2 0h1M2 26.5h1m1 0h3m1 0h1m1 0h2m1 0h1m4 0h1m1 0h1m1 0h5m1 0h1m1 0h1M2 27.5h1m1 0h3m1 0h1m1 0h1m1 0h1m2 0h3m1 0h5m3 0h2M2 28.5h1m1 0h3m1 0h1m1 0h3m4 0h3m3 0h7M2 29.5h1m5 0h1m2 0h1m2 0h1m1 0h2m1 0h2m1 0h1m1 0h1m1 0h2m1 0h1M2 30.5h7m1 0h1m1 0h2m1 0h3m3 0h1m1 0h6"/></svg>
+</div><div data-svg="line"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29 29" shape-rendering="crispEdges"><path fill="#FFFFFF" d="M0 0h29v29H0z"/><path stroke="#0D1618" d="M2 2.5h7m2 0h1m1 0h3m2 0h1m1 0h7M2 3.5h1m5 0h1m2 0h3m1 0h4m1 0h1m5 0h1M2 4.5h1m1 0h3m1 0h1m1 0h1m5 0h2m2 0h1m1 0h3m1 0h1M2 5.5h1m1 0h3m1 0h1m1 0h3m2 0h1m2 0h1m1 0h1m1 0h3m1 0h1M2 6.5h1m1 0h3m1 0h1m1 0h2m1 0h1m2 0h1m1 0h1m1 0h1m1 0h3m1 0h1M2 7.5h1m5 0h1m1 0h1m1 0h1m4 0h1m2 0h1m5 0h1M2 8.5h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7M10 9.5h1m1 0h1m1 0h1m2 0h1M2 10.5h1m1 0h5m2 0h1m1 0h2m1 0h3m1 0h5M2 11.5h6m2 0h3m1 0h1m2 0h2m2 0h1m3 0h1M3 12.5h1m1 0h4m2 0h3m3 0h2m4 0h1m1 0h2M3 13.5h2m4 0h4m1 0h1m1 0h1m1 0h5m3 0h1M4 14.5h2m1 0h4m2 0h1m2 0h1m2 0h2m1 0h1m1 0h3M2 15.5h2m5 0h3m2 0h2m5 0h1m1 0h1m1 0h1M2 16.5h1m2 0h2m1 0h1m3 0h1m3 0h4m1 0h3m1 0h2M2 17.5h1m2 0h1m4 0h2m2 0h1m1 0h3m2 0h2m3 0h1M2 18.5h1m4 0h2m3 0h1m1 0h9m1 0h1M10 19.5h2m3 0h1m1 0h2m3 0h2M2 20.5h7m4 0h2m1 0h1m1 0h1m1 0h1m1 0h1m1 0h3M2 21.5h1m5 0h1m1 0h1m2 0h1m4 0h1m3 0h2M2 22.5h1m1 0h3m1 0h1m1 0h1m1 0h2m3 0h6m1 0h3M2 23.5h1m1 0h3m1 0h1m1 0h2m2 0h2m4 0h1m1 0h5M2 24.5h1m1 0h3m1 0h1m1 0h1m1 0h1m2 0h2m6 0h2m1 0h1M2 25.5h1m5 0h1m2 0h2m1 0h2m1 0h3m1 0h3m2 0h1M2 26.5h7m1 0h1m1 0h1m1 0h1m1 0h1m4 0h6"/></svg>
+</div><div data-svg="belong"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 33 33" shape-rendering="crispEdges"><path fill="#FFFFFF" d="M0 0h33v33H0z"/><path stroke="#0D1618" d="M2 2.5h7m5 0h2m5 0h2m1 0h7M2 3.5h1m5 0h1m6 0h6m1 0h1m1 0h1m5 0h1M2 4.5h1m1 0h3m1 0h1m1 0h1m2 0h2m2 0h2m1 0h3m1 0h1m1 0h3m1 0h1M2 5.5h1m1 0h3m1 0h1m1 0h1m2 0h4m2 0h1m4 0h1m1 0h3m1 0h1M2 6.5h1m1 0h3m1 0h1m1 0h1m1 0h1m1 0h1m3 0h1m1 0h3m1 0h1m1 0h3m1 0h1M2 7.5h1m5 0h1m1 0h1m3 0h2m1 0h1m6 0h1m5 0h1M2 8.5h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7M10 9.5h1m2 0h2m1 0h1m5 0h1M2 10.5h1m1 0h5m5 0h6m4 0h5M2 11.5h2m1 0h1m4 0h2m2 0h2m2 0h1m1 0h7m3 0h1M2 12.5h1m1 0h2m2 0h1m1 0h2m1 0h1m1 0h4m5 0h3M3 13.5h3m3 0h2m1 0h3m1 0h1m1 0h1m2 0h4m2 0h1m1 0h1M4 14.5h1m3 0h1m1 0h2m2 0h1m4 0h1m1 0h1m5 0h2M2 15.5h1m1 0h2m3 0h1m2 0h1m2 0h1m2 0h1m2 0h6m3 0h1M5 16.5h1m1 0h3m2 0h2m1 0h3m4 0h1m3 0h3M2 17.5h1m1 0h2m1 0h1m3 0h1m3 0h1m2 0h1m1 0h1m4 0h1m3 0h1M4 18.5h1m1 0h1m1 0h2m2 0h1m1 0h1m1 0h2m1 0h2m6 0h2M2 19.5h2m1 0h2m4 0h1m1 0h2m3 0h9m1 0h1m1 0h1M2 20.5h1m1 0h1m1 0h3m1 0h5m2 0h1m1 0h1m4 0h1m3 0h1M2 21.5h1m2 0h1m1 0h1m1 0h2m1 0h2m2 0h1m3 0h1m1 0h1m2 0h1m3 0h1M2 22.5h1m1 0h1m2 0h7m3 0h3m2 0h5m1 0h3M10 23.5h1m1 0h5m1 0h1m2 0h2m3 0h5M2 24.5h7m2 0h1m2 0h5m1 0h3m1 0h1m1 0h3M2 25.5h1m5 0h1m1 0h4m1 0h1m1 0h2m1 0h3m3 0h1m3 0h1M2 26.5h1m1 0h3m1 0h1m1 0h1m5 0h2m1 0h1m2 0h5m1 0h1M2 27.5h1m1 0h3m1 0h1m1 0h1m1 0h2m1 0h1m2 0h1m1 0h2m5 0h4M2 28.5h1m1 0h3m1 0h1m1 0h1m1 0h1m1 0h2m1 0h1m2 0h2m1 0h7M2 29.5h1m5 0h1m2 0h5m1 0h1m4 0h1m2 0h1m1 0h1m1 0h1M2 30.5h7m1 0h1m3 0h2m1 0h3m1 0h1m3 0h1m2 0h1"/></svg>
+</div><div data-svg="prayer"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 33 33" shape-rendering="crispEdges"><path fill="#FFFFFF" d="M0 0h33v33H0z"/><path stroke="#0D1618" d="M2 2.5h7m1 0h1m3 0h4m1 0h2m3 0h7M2 3.5h1m5 0h1m3 0h1m1 0h1m2 0h1m1 0h2m1 0h1m1 0h1m5 0h1M2 4.5h1m1 0h3m1 0h1m1 0h3m2 0h1m3 0h1m1 0h1m2 0h1m1 0h3m1 0h1M2 5.5h1m1 0h3m1 0h1m3 0h1m4 0h1m1 0h2m3 0h1m1 0h3m1 0h1M2 6.5h1m1 0h3m1 0h1m2 0h2m1 0h1m2 0h4m3 0h1m1 0h3m1 0h1M2 7.5h1m5 0h1m1 0h2m1 0h4m5 0h1m1 0h1m5 0h1M2 8.5h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7M11 9.5h1m2 0h2m4 0h1m1 0h1M2 10.5h1m1 0h1m3 0h2m1 0h1m1 0h3m1 0h1m2 0h1m1 0h1m2 0h1m2 0h1m1 0h1M3 11.5h2m1 0h2m1 0h2m3 0h1m2 0h3m1 0h2m1 0h2m3 0h2M2 12.5h1m2 0h1m2 0h1m2 0h3m1 0h4m2 0h1m2 0h1m1 0h3m1 0h1M5 13.5h2m2 0h1m3 0h2m1 0h1m4 0h3m2 0h2M2 14.5h2m3 0h6m1 0h4m4 0h1m1 0h1m5 0h1M5 15.5h2m4 0h1m1 0h6m1 0h6m3 0h2M2 16.5h1m1 0h6m3 0h2m2 0h1m3 0h1m1 0h2m1 0h1m3 0h1M3 17.5h5m2 0h1m3 0h2m6 0h1m1 0h1M2 18.5h2m1 0h2m1 0h3m1 0h2m1 0h1m1 0h2m3 0h4m4 0h1M5 19.5h3m2 0h2m5 0h2m2 0h1m2 0h2m2 0h3M2 20.5h3m1 0h3m1 0h1m1 0h1m2 0h5m1 0h2m2 0h1m1 0h1m2 0h1M7 21.5h1m2 0h1m1 0h1m3 0h3m1 0h1m2 0h1M2 22.5h4m1 0h2m1 0h4m1 0h2m1 0h1m2 0h7m1 0h1M10 23.5h4m1 0h3m2 0h3m3 0h3m1 0h1M2 24.5h7m1 0h4m3 0h2m1 0h1m1 0h1m1 0h1m1 0h1m3 0h1M2 25.5h1m5 0h1m2 0h1m3 0h1m2 0h1m2 0h2m3 0h1m2 0h2M2 26.5h1m1 0h3m1 0h1m2 0h1m2 0h2m2 0h1m2 0h7m1 0h2M2 27.5h1m1 0h3m1 0h1m3 0h1m2 0h1m1 0h2m2 0h1m1 0h1m1 0h4m1 0h1M2 28.5h1m1 0h3m1 0h1m1 0h5m1 0h2m2 0h4m2 0h1m2 0h2M2 29.5h1m5 0h1m2 0h1m1 0h1m2 0h1m1 0h1m1 0h1m1 0h3m2 0h1M2 30.5h7m1 0h1m2 0h3m1 0h2m3 0h1m1 0h3m3 0h1"/></svg>
+</div></div>
+
+<script>
+const QRS = {"onsite":{"title":"現場登記","note":"沒事先報名的人補留資料；也用來報名下個月的 Watch Party","url":"https://i1f9fmih.paperform.co"},"baptism":{"title":"受洗現場報名","note":"今天想受洗的人填這份","url":"https://p99la8ek.paperform.co/"},"vip":{"title":"新朋友卡","note":"沒有在用 LINE 的新朋友，掃這個留資料","url":"https://thehope.co/onlinevip"},"line":{"title":"線上分部 LINE@","note":"加入後裡面有新朋友小表單（ID：@thehopeonline）","url":"https://lin.ee/Pyo0AMl"},"belong":{"title":"10/18 ONLINE BELONG","note":"想找小組、認識同地區家人的人","url":"https://onlinemeetandgreet.paperform.co"},"prayer":{"title":"禱告地圖","note":"把為 One More 的禱告寫上去","url":"https://prayer-map-omega.vercel.app"}};
+const pages = [...document.querySelectorAll(".page")];
+function route() {
+  const id = location.hash.slice(1);
+  const target = document.getElementById("page-" + id);
+  if (target) {
+    pages.forEach((p) => (p.hidden = p !== target));
+    window.scrollTo(0, 0);
+  } else {
+    pages.forEach((p) => (p.hidden = p.id !== "page-home"));
+    const anchor = id && document.getElementById(id);
+    if (anchor) anchor.scrollIntoView(); else window.scrollTo(0, 0);
+  }
+}
+window.addEventListener("hashchange", route);
+route();
+
+const modal = document.getElementById("qr-modal");
+function openQR(k) {
+  const q = QRS[k];
+  document.getElementById("qr-title").textContent = q.title;
+  document.getElementById("qr-note").textContent = q.note;
+  const svg = document.querySelector('#qr-store [data-svg="' + k + '"] svg');
+  document.getElementById("qr-img").replaceChildren(svg.cloneNode(true));
+  document.getElementById("qr-url").textContent = q.url.replace(/^https?:\/\//, "").replace(/\/$/, "");
+  document.getElementById("qr-open").href = q.url;
+  modal.classList.add("open");
+  modal.setAttribute("aria-hidden", "false");
+}
+function closeQR() { modal.classList.remove("open"); modal.setAttribute("aria-hidden", "true"); }
+document.addEventListener("click", (e) => {
+  const b = e.target.closest("[data-qr]");
+  if (b) return openQR(b.dataset.qr);
+  if (e.target === modal || e.target.closest(".qr-close")) closeQR();
+});
+document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeQR(); });
+</script>
+</body>
+</html>
