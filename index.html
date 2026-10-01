@@ -12,7 +12,7 @@
 <style>
 :root{
   --yellow:#FFCC32;--deep:#1D292E;--midnight:#3C5464;--sand:#C8956A;--cream:#EDE0D4;--cream-light:#F6F0EA;--black:#0D1618;
-  --fg:#1D292E;--fg2:#3C5464;--fg3:rgba(29,41,46,.62);
+  --fg:#1D292E;--fg2:#3C5464;--fg3:rgba(29,41,46,.72);
   --zh:'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif;--en:'Montserrat','Noto Sans TC',sans-serif;
   --ease:cubic-bezier(.16,1,.3,1);
 }
@@ -23,6 +23,8 @@ a{color:inherit}
 .ic{width:20px;height:20px;flex:none}
 .wrap{max-width:560px;margin:0 auto;padding:0 16px}
 [hidden]{display:none!important}
+.nw{white-space:nowrap}
+.tc-main b,.team-hero h2,.sec-title{word-break:keep-all;overflow-wrap:anywhere}
 
 /* 首頁 hero */
 .hero{background:var(--deep);color:#fff;padding:40px 0 32px}
@@ -142,7 +144,7 @@ footer small{font-size:13px;opacity:.75}
     <header class="hero">
       <div class="wrap">
         <p class="brand">TOGETHER<br>WE GO</p>
-        <h1>10/4 KL Watch Party 服事 App</h1>
+        <h1>10/4 KL Watch Party <span class="nw">服事 App</span></h1>
         <p class="place"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
   <circle cx="12" cy="10" r="3" /></svg><span>Menara KL 33 Tower 11F Auditorium</span></p>
       </div>
